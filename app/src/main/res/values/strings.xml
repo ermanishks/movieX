@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">movieX</string>
+    <string name="search_movie_tvshows_theatre">Search movie,tvshows,theatre ...</string>
+    <string name="movie">Movie</string>
+    <string name="tv_shows">Tv Shows</string>
+    <string name="extras">Extras</string>
+</resources>

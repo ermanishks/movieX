@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.Data
 import androidx.work.WorkerParameters
+import com.contest.moviex.dao.SearchTextDao
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 
@@ -14,9 +15,11 @@ import com.squareup.inject.assisted.AssistedInject
  * worker to sync searched text with DB
  */
 
-class SyncSearchTextsWithDbWorker @AssistedInject constructor(
-    @Assisted params: WorkerParameters,
-    @Assisted context: Context):CoroutineWorker(context,params){
+class SyncSearchTextsWithDbWorker  constructor(
+    context: Context,
+    params: WorkerParameters,
+    dbManager: SearchTextDao
+    ):CoroutineWorker(context,params){
 
     companion object {
         const val TAG = "SyncSearchTextsWithDbProgress"
@@ -29,7 +32,6 @@ class SyncSearchTextsWithDbWorker @AssistedInject constructor(
     override suspend fun doWork(): Result {
         val searchText = inputData.getString(PARAM_SEARCH_TEXT)
         Log.d("MANISH", " worker running for $searchText")
-        // add db. insert here
         return Result.success()
     }
 

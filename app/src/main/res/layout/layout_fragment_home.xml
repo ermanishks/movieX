@@ -21,6 +21,12 @@
         android:id="@+id/view_recycler"
         tools:listitem="@layout/lyt_item_movie"
         tools:itemCount="5"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

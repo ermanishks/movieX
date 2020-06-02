@@ -10,13 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.contest.moviex.ImdbViewModelFactory
 import com.contest.moviex.network.NetworkService
 import com.contest.moviex.repo.MovieRepository
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
 /**
  * Created by Manish Kumar
  */
-abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>:Fragment() {
+abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>:DaggerFragment() {
 
 
     /**
@@ -25,7 +28,7 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>:Fragment()
      */
     abstract fun getViewModelClass(): Class<VM>
 
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+   @Inject lateinit var viewModelFactory: ImdbViewModelFactory
 
     protected lateinit var binding: VB
     protected lateinit var viewModel: VM
@@ -38,8 +41,6 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>:Fragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val movieRepository = MovieRepository(NetworkService())
-        viewModelFactory = ViewModelFactory(movieRepository)
         viewModel = ViewModelProviders.of(this, viewModelFactory)[getViewModelClass()]
     }
 

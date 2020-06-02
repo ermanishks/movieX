@@ -4,24 +4,30 @@ import android.content.Context
 import androidx.work.ListenableWorker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
+import com.contest.moviex.dao.SearchTextDao
+import com.contest.moviex.repo.SyncSearchTextsWithDbWorker
 import javax.inject.Inject
 import javax.inject.Provider
+import javax.inject.Singleton
 
 /**
  * Created by Manish Kumar
  */
+@Singleton
 class ImdbWorkerFactory @Inject constructor(
-    private val creators: Map<Class<out ListenableWorker>, @JvmSuppressWildcards Provider<ChildWorkerFactory>>
+    private val searchTextDao: SearchTextDao
 ) : WorkerFactory() {
     override fun createWorker(
         context: Context,
         workerClassName: String,
         workerParameters: WorkerParameters
     ): ListenableWorker? {
-        val workerClass = Class.forName(workerClassName)
-        val foundEntry = creators.entries.find { workerClass.isAssignableFrom(it.key) }
-        val factory = foundEntry?.value
-            ?: throw IllegalArgumentException("unknown worker class name: $workerClassName")
-        return factory.get().create(context, workerParameters)
+        return null
+       /* return when(workerClassName) {
+           null
+            else ->
+                // Return null, so that the base class can delegate to the default WorkerFactory.
+                null
+        }*/
     }
 }

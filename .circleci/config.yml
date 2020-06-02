@@ -5,6 +5,7 @@ orbs:
 
 jobs:
   build:
+    working_directory: ~/app
     docker:
       - image: circleci/android:api-28-alpha
     environment:

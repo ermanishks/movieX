@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build:
-    working_directory: ~/code
+    working_directory: ~/movieX
     docker:
       - image: circleci/android:api-25-alpha
     environment:

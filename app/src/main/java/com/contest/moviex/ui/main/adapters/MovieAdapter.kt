@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.contest.moviex.base.BaseViewHolder
 import com.contest.moviex.databinding.LytItemMovieBinding
 import com.contest.moviex.model.ResultItemRes
+import com.contest.moviex.model.SearchTextUI
 
 /**
  * Created by Manish Kumar
  */
 class MovieAdapter(
-    private val vList: List<ResultItemRes>): RecyclerView.Adapter<BaseViewHolder<ResultItemRes>>() {
+    private val vList: List<ResultItemRes>
+): RecyclerView.Adapter<BaseViewHolder<ResultItemRes>>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

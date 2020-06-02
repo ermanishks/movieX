@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-    ImdbEntity::class
+    SearchKeyWordsEntity::class
         ],
     version = 1)
 abstract class ImdbRoomDatabase:RoomDatabase(),ImdbDatabase {

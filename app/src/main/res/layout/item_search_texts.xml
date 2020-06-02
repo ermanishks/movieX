@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.contest.moviex.model.SearchTextUI" />
+    </data>
+
+    <RelativeLayout
+        android:background="@drawable/edittext_bg"
+        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/agenda_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{model.title_text}"
+            android:layout_centerInParent="true"
+            android:textAlignment="viewStart"
+            tools:text="Dilwale Dilhunia Le jaayenge" />
+    </RelativeLayout>
+</layout>

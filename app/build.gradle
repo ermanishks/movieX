@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion compile_sdk_version
+    kapt.includeCompileClasspath = false
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.contest.moviex"
+        minSdkVersion min_sdk_version
+        targetSdkVersion compile_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+        debug{
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+
+    implementation libraries
+    implementation arch_libraries
+    kapt librariesKapt
+
+    kapt "com.google.dagger:dagger-compiler:2.27"
+    kapt "com.google.dagger:dagger-android-processor:2.27"
+
+    compileOnly 'com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2'
+    annotationProcessor "com.squareup.inject:assisted-inject-processor-dagger2:0.5.2"
+    testImplementation testLibraries
+    androidTestImplementation androidTestLibraries
+}

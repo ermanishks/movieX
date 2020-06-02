@@ -7,11 +7,11 @@ import androidx.room.*
  */
 @Entity(tableName = "search_texts",
     indices = [
-        Index(value = ["titile_text"], unique = true)
+        Index(value = ["title_text"], unique = true)
     ]
 )
-data class SearchKeyWords(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id")  override val id: Long = 0,
+data class SearchKeyWordsEntity(
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id")  val id: Long = 0,
     @ColumnInfo(name = "title_text") val title: String? = null
-    ):ImdbEntity {
+    ) {
 }

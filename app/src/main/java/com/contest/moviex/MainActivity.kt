@@ -1,21 +1,16 @@
 package com.contest.moviex
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
 import com.contest.moviex.base.BaseActivity
-import com.contest.moviex.base.viewModel
 import com.contest.moviex.databinding.ActivityMainBinding
 import com.contest.moviex.ui.extras.ExtrasFragment
 import com.contest.moviex.ui.main.HomeFragment
 import com.contest.moviex.ui.tvshows.TvShowsFragment
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -75,10 +70,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), CoroutineScope {
                 delay(300)  //debounce timeOut
                 if (searchText != searchFor)
                     return@launch
+                if(searchText.length<=2)
+                    return@launch
                 // here launch your code
                 vm.searchText.value = searchText
                 // save this value in db
-
+                vm.syncSearchTextWithDB(searchText)
             }
         }
 

@@ -14,3 +14,6 @@
 .cxx
 /.idea/vcs.xml
 /.idea/codeStyles/Project.xml
+/.idea/codeStyles/
+/.idea/gradle.xml
+/.idea/misc.xml

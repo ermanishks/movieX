@@ -24,7 +24,6 @@ class NetworkService {
     private val imdbMovieService = retrofit.create(ImdbMovieService::class.java)
 
     suspend fun getSearchResults(queryName: String): ImdbSearchResultRes = withContext(Dispatchers.Default) {
-        Log.d("MANISH","Current Thread  ${Thread.currentThread().name}  ")
         imdbMovieService.searchMovieByTitle(queryName)
     }
 

@@ -29,6 +29,12 @@ abstract class BaseActivity<B : ViewDataBinding>: DaggerAppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, getContentViewId())
     }
 
+    // first change
+
+    // second change
+
+    // third change 
+
     inline fun <reified T : ViewModel> FragmentActivity.viewModel(): T {
         return ViewModelProviders.of(this, viewModelFactory)[T::class.java]
     }

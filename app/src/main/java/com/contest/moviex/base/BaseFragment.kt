@@ -21,7 +21,7 @@ import javax.inject.Inject
  */
 abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>:DaggerFragment() {
 
-
+   // third change
     /**
      * Gets the class of the View model for instantiation
      * @return - Class of view model
